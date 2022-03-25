@@ -1,0 +1,39 @@
+version: '3.3'
+
+networks:
+    default-network:
+
+services:
+  dbprobmathi:
+    container_name: dbprobmathi
+    hostname: dbprobmathi
+    image: mysql:5.7
+    ports:
+        - "3306:3306"
+        - "33061:3306"
+    volumes:
+        - ./mysql:/var/lib/mysql
+    restart: always
+    networks:
+        - default-network
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: probmathi
+        MYSQL_PASSWORD: password
+
+  phpprobmathi:
+    image: nanoninja/php-fpm
+    container_name: phpprobmathi
+    hostname: phpprobmathi
+    restart: always
+    environment:
+        - TZ=America/Argentina/Buenos_Aires
+    networks:
+        - default-network
+    depends_on:
+        - dbprobmathi
+    volumes:
+        - ./:/var/www/html
+    ports:
+        - 8000:8000
+    command:  php artisan serve --host 0.0.0.0
