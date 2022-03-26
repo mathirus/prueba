@@ -15,7 +15,7 @@ use App\Http\Controllers\TelegramController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'piola';
 });
 
 
