@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/mandamensaje',  [TelegramController::class, 'mandarmensajeB']);
+Route::post('/mandamensaje',  [TelegramController::class, 'mandarmensajeB']);
 

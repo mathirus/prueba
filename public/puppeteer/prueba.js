@@ -7,6 +7,7 @@ const puppeteer = require('puppeteer');
 
 async function run () {
     const browser = await puppeteer.launch({
+        headless: false,
         args: ["--disable-setuid-sandbox"],
         'ignoreHTTPSErrors': true,
         //devtools: true,
@@ -29,9 +30,10 @@ async function run () {
         return info;
     });
 
-    if (proximamente[0]=='No hay eventos que mostrar'){
+    if (proximamente[0]=='No hay eventos que mostrar' || proximamente[0]== 'COUPON.EMPTY_TABLE'){
         console.log("no hay nada")
     }else{
+        console.log(proximamente)
         console.log("si")
 
         let hay_en_vivo = await page.evaluate(() => {
@@ -108,7 +110,7 @@ const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
 
 var request = $.ajax({
-    method: "GET",
+    method: "POST",
     url: "http://localhost:8000/api/mandamensaje"
 });  */
 
