@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+/*const puppeteer = require('puppeteer');
 
 //https://www.betfair.com/exchange/plus/es/f%C3%BAtbol/primera-b-nacional-argentina-apuestas-803237/inplay
 
@@ -102,17 +102,17 @@ async function run () {
 
     browser.close();
 }
-run();
+run(); */
 
-/*
+
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
 
 var request = $.ajax({
     method: "POST",
-    url: "http://localhost:8000/api/mandamensaje"
-});  */
+    url: "http://137.184.106.85/api/mandamensaje"
+});
 
 /*
 liga argentina en bet365
